@@ -1,6 +1,5 @@
 import express from "express"
 
-//njfdnfdwjfi
 const app = express()
 const port: number = 3000
 
