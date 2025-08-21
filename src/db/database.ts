@@ -42,5 +42,5 @@ export function getDB(): Db {
 export async function closeDB(): Promise<void> {
   await client.close()
   isConnected = false
-  console.log("MOngoDb connection closed")
+  console.log("MongoDb connection closed")
 }
