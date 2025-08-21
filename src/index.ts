@@ -1,5 +1,5 @@
 import express, { type Request, type Response } from "express"
-import "dotenv/config" // oneliner for config
+import "dotenv/config"
 import { closeDB, getDB, runDB } from "./db/database.js"
 import { ObjectId } from "mongodb"
 import type { User } from "./types/User.js"
