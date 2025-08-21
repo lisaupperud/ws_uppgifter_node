@@ -6,7 +6,7 @@ const app = express()
 const port: number = 3000
 
 app.get("/", (req, res) => {
-  res.status(200).send("Hello World!") // automatically converts to datatypes
+  res.status(200).send({ message: "Hello World!" }) // automatically converts to datatypes
   res.json() // manually converts to JSON
 })
 
