@@ -1,13 +1,19 @@
-import express from "express"
+import express, { type Request, type Response } from "express"
 import "dotenv/config" // oneliner for config
 import { closeDB, runDB } from "./db/database.js"
 
 const app = express()
 const port: number = 3000
 
-app.get("/", (req, res) => {
-  res.status(200).send({ message: "Hello World!" }) // automatically converts to datatypes
-  res.json() // manually converts to JSON
+app.get("/:id", (req: Request, res: Response) => {
+  const id: number = Number(req.params.id) // casting
+
+  if (isNaN(id)) {
+    res.status(400).send("Not a Number")
+    return
+  }
+
+  res.send({ id: id })
 })
 
 app.listen(port, () => {
