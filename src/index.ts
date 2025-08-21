@@ -2,19 +2,13 @@ import express, { type Request, type Response } from "express"
 import "dotenv/config" // oneliner for config
 import { closeDB, getDB, runDB } from "./db/database.js"
 import { ObjectId } from "mongodb"
+import type { User } from "./types/User.js"
 
 const app = express()
 const port: number = 3000
 
 // middleware to parse JSON bodies (requests) -> required for POST body
 app.use(express.json())
-
-// define a User interface
-interface User {
-  id?: string // MongoDB uses 'id' of type 'ObjectId' -> not a number
-  name: string
-  email: string
-}
 
 // GET endpoint
 app.get("/:id", async (req: Request, res: Response) => {
